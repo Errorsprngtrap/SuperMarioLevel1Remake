@@ -1,0 +1,86 @@
+[gd_scene format=3 uid="uid://dy4d8p1cksc65"]
+
+[ext_resource type="Script" uid="uid://cd6osui87puo0" path="res://Player/player.gd" id="1_gwnis"]
+[ext_resource type="Texture2D" uid="uid://bwxxvirsvapwh" path="res://Player/Mario/mini_death.png" id="2_fhl08"]
+[ext_resource type="Texture2D" uid="uid://5o448b341mw" path="res://Player/Mario/marioSmall.png" id="2_k53q1"]
+[ext_resource type="Texture2D" uid="uid://bv3jfiaya11ns" path="res://Player/Mario/jump_mario_small.png" id="3_fhl08"]
+[ext_resource type="Texture2D" uid="uid://ceboc7w55w080" path="res://Player/Mario/small_run.png" id="4_vtle1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1xm4"]
+atlas = ExtResource("4_vtle1")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcndt"]
+atlas = ExtResource("4_vtle1")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0nmp"]
+atlas = ExtResource("4_vtle1")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xixvl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fhl08")
+}],
+"loop": 1,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_k53q1")
+}],
+"loop": 1,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fhl08")
+}],
+"loop": 1,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1xm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcndt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0nmp")
+}],
+"loop": 1,
+"name": &"Walk_Run",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vxp08"]
+radius = 7.0
+height = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k53q1"]
+size = Vector2(13, 15)
+
+[node name="Player" type="CharacterBody2D" unique_id=969002222]
+collision_layer = 2
+script = ExtResource("1_gwnis")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1158907401]
+sprite_frames = SubResource("SpriteFrames_xixvl")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=203970828]
+shape = SubResource("CapsuleShape2D_vxp08")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1514208763]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=295248166]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_k53q1")

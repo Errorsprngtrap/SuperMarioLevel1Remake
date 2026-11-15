@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://cnx3xneu6g884"]
+
+[ext_resource type="PackedScene" uid="uid://tep65x4ttjh4" path="res://Ennemy/base_ennemy.tscn" id="1_wyhou"]
+[ext_resource type="Script" uid="uid://ofk6vmkrlrfk" path="res://Ennemy/Goomba/goomba.gd" id="2_oq3v8"]
+[ext_resource type="Texture2D" uid="uid://y0do3iml2iom" path="res://Ennemy/Goomba/goombaWalk.png" id="3_5gkl6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70i7y"]
+atlas = ExtResource("3_5gkl6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_naom6"]
+atlas = ExtResource("3_5gkl6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o3mmj"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"Stomped",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_70i7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_naom6")
+}],
+"loop": 1,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[node name="BaseEnnemy" unique_id=216120928 instance=ExtResource("1_wyhou")]
+script = ExtResource("2_oq3v8")
+SPEED = 50.0
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1525110639]
+sprite_frames = SubResource("SpriteFrames_o3mmj")
+animation = &"Walk"
+
+[node name="LeftRay" parent="." index="3" unique_id=607816744]
+target_position = Vector2(-12, 0)
+
+[node name="RightRay" parent="." index="4" unique_id=368732660]
+target_position = Vector2(12, 0)
