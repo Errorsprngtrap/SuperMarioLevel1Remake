@@ -17,8 +17,13 @@ config/features=PackedStringArray("4.8", "GL Compatibility")
 
 window/size/viewport_width=256
 window/size/viewport_height=240
+window/size/mode=2
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[global_group]
+
+Hurtbox=""
 
 [gui]
 

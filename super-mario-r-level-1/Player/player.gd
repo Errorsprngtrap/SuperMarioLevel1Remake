@@ -14,6 +14,8 @@ enum PowerState{Small,Super}
 @export var currentState :State = State.IDLE
 @export var currentPowerState:PowerState = PowerState.Small
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+
 func _physics_process(delta: float) -> void:
 	if !Dead:
 		gravity(delta)
@@ -88,9 +90,27 @@ func get_jump() -> void:
 	currentState = State.JUMP
 
 func Damage()-> void:
-	if PowerState.Small :
+	if currentPowerState == PowerState.Small and !Dead:
 		Dead = true
 		Death()
 	
 func Death()-> void:
-	print("dead")
+	animated_sprite_2d.play("Death")
+	var tween : Tween = create_tween()
+	tween.tween_property(self, "position:y", position.y - 40, 0.4)
+	tween.tween_property(self, "position:y", position.y + 300, 1.0)
+	get_tree().quit()
+	
+	
+
+
+
+
+
+func _on_stompzone_area_entered(area: Area2D) -> void:
+	if !area.is_in_group("Hurtbox"):
+		return
+		
+	if area.get_parent() and area.get_parent() is Base_Ennemy:
+		var ennemy : Base_Ennemy = area.get_parent()
+		ennemy.death()

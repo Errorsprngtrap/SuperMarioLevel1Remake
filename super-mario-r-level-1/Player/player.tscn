@@ -66,6 +66,9 @@ height = 16.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k53q1"]
 size = Vector2(13, 15)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fhl08"]
+size = Vector2(13, 2)
+
 [node name="Player" type="CharacterBody2D" unique_id=969002222]
 collision_layer = 2
 script = ExtResource("1_gwnis")
@@ -77,10 +80,18 @@ animation = &"Idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=203970828]
 shape = SubResource("CapsuleShape2D_vxp08")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1514208763]
+[node name="Area2D" type="Area2D" parent="." unique_id=1514208763 groups=["Hurtbox"]]
 collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=295248166]
 position = Vector2(0.5, 0.5)
 shape = SubResource("RectangleShape2D_k53q1")
+
+[node name="Stompzone" type="Area2D" parent="." unique_id=1494914564]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stompzone" unique_id=1130983519]
+position = Vector2(0.5, 9)
+shape = SubResource("RectangleShape2D_fhl08")
+
+[connection signal="area_entered" from="Stompzone" to="." method="_on_stompzone_area_entered"]

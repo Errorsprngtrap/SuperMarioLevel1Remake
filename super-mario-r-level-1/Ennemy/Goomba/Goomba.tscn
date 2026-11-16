@@ -31,6 +31,16 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3mmj"]
+size = Vector2(15.999036, 16.000944)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5ugcs"]
+radius = 7.0
+height = 16.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8q24w"]
+size = Vector2(1.7836453, 4.275302)
+
 [node name="BaseEnnemy" unique_id=216120928 instance=ExtResource("1_wyhou")]
 script = ExtResource("2_oq3v8")
 SPEED = 50.0
@@ -39,8 +49,21 @@ SPEED = 50.0
 sprite_frames = SubResource("SpriteFrames_o3mmj")
 animation = &"Walk"
 
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(615535076) index="0" unique_id=1950962933]
+position = Vector2(0.0014316348, -0.00047850134)
+scale = Vector2(1.0000005, 1.0000005)
+shape = SubResource("RectangleShape2D_o3mmj")
+
+[node name="Box" parent="." index="2" unique_id=1178043773]
+shape = SubResource("CapsuleShape2D_5ugcs")
+
 [node name="LeftRay" parent="." index="3" unique_id=607816744]
 target_position = Vector2(-12, 0)
 
 [node name="RightRay" parent="." index="4" unique_id=368732660]
 target_position = Vector2(12, 0)
+
+[node name="CollisionShape2D" parent="Hurtbox" parent_id_path=PackedInt32Array(1789757388) index="0" unique_id=498241956]
+position = Vector2(1.4305115e-06, -8.5)
+scale = Vector2(8.970395, 0.2339015)
+shape = SubResource("RectangleShape2D_8q24w")

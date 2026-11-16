@@ -19,6 +19,9 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o3mmj"]
 height = 20.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n65it"]
+size = Vector2(20, 2)
+
 [node name="BaseEnnemy" type="CharacterBody2D" unique_id=216120928]
 collision_layer = 4
 script = ExtResource("1_03iqh")
@@ -27,12 +30,12 @@ script = ExtResource("1_03iqh")
 sprite_frames = SubResource("SpriteFrames_ky8qd")
 animation = &"Idle"
 
-[node name="Area2D" type="Area2D" parent="." unique_id=615535076]
+[node name="Hitbox" type="Area2D" parent="." unique_id=615535076]
 rotation = 0.0009540579
 collision_layer = 4
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1950962933]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1950962933]
 shape = SubResource("RectangleShape2D_03iqh")
 
 [node name="Box" type="CollisionShape2D" parent="." unique_id=1178043773]
@@ -44,4 +47,11 @@ target_position = Vector2(-20, 0)
 [node name="RightRay" type="RayCast2D" parent="." unique_id=368732660]
 target_position = Vector2(20, 0)
 
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1789757388 groups=["Hurtbox"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=498241956]
+position = Vector2(0, 9)
+shape = SubResource("RectangleShape2D_n65it")
+debug_color = Color(0.9792687, 0, 0.39328524, 0.41960785)
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_area_2d_body_entered"]
