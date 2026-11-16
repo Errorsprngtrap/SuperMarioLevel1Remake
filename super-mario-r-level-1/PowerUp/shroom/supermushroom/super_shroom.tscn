@@ -2,7 +2,23 @@
 
 [ext_resource type="PackedScene" uid="uid://otr2gqu7ybww" path="res://PowerUp/shroom/shroom.tscn" id="1_okl7b"]
 [ext_resource type="Script" uid="uid://b5vqkhedlqo18" path="res://PowerUp/shroom/supermushroom/super_shroom.gd" id="2_ngkt2"]
+[ext_resource type="Texture2D" uid="uid://bklkxleaf67kd" path="res://PowerUp/shroom/supermushroom/mushroom.png" id="3_lfkxu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uc3nb"]
+radius = 9.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5sd6x"]
+radius = 8.0
 
 [node name="SuperShroom" unique_id=1145345906 instance=ExtResource("1_okl7b")]
 script = ExtResource("2_ngkt2")
 PowerType = 1
+
+[node name="Sprite2D" parent="." index="0" unique_id=436788922]
+texture = ExtResource("3_lfkxu")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=231069836]
+shape = SubResource("CircleShape2D_uc3nb")
+
+[node name="CollisionShape2D" parent="HitBox" parent_id_path=PackedInt32Array(604372978) index="0" unique_id=1027150834]
+shape = SubResource("CircleShape2D_5sd6x")
