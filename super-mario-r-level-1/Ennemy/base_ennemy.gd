@@ -7,8 +7,11 @@ var canDamage : bool = true
 
 @onready var left_ray: RayCast2D = $LeftRay
 @onready var right_ray: RayCast2D = $RightRay
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
-
+func _ready() -> void:
+	animated_sprite_2d.play("Walk")
+	
 func _physics_process(delta: float) -> void:
 	## Add the gravity.
 	gravity(delta)
@@ -31,9 +34,19 @@ func movement() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is Player and canDamage :
+	if !canDamage :
+		return
+		
+	if body is Player :
+		if body.velocity.y > 0 and body.global_position.y < global_position.y:
+			return
 		body.Damage()
 
+func damage()-> void:
+	death()
+	
 func death()-> void:
 	canDamage = false
+	animated_sprite_2d.play("Stomped")
+	await get_tree().create_timer(.2).timeout
 	queue_free()

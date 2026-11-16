@@ -24,6 +24,7 @@ window/stretch/aspect="expand"
 [global_group]
 
 Hurtbox=""
+PowerUp=""
 
 [gui]
 
@@ -104,6 +105,7 @@ joypads/ignore_joypad_on_unfocused_application=true
 2d_physics/layer_1="Tile"
 2d_physics/layer_2="Mario"
 2d_physics/layer_3="Ennemy"
+2d_physics/layer_4="PowerUp"
 
 [physics]
 

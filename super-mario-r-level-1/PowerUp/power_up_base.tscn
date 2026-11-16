@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b2mkmgvqqok57"]
+
+[ext_resource type="Script" uid="uid://6pdukcrgsqp3" path="res://PowerUp/power_up_base.gd" id="1_y61nt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xh0bo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ffwt"]
+
+[node name="PowerUpBase" type="CharacterBody2D" unique_id=1145345906 groups=["PowerUp"]]
+collision_layer = 8
+collision_mask = 3
+script = ExtResource("1_y61nt")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=436788922]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=231069836]
+shape = SubResource("RectangleShape2D_xh0bo")
+
+[node name="RCast" type="RayCast2D" parent="." unique_id=814206788]
+target_position = Vector2(14, 0)
+
+[node name="LCast" type="RayCast2D" parent="." unique_id=1535700905]
+target_position = Vector2(-14, 0)
+
+[node name="HitBox" type="Area2D" parent="." unique_id=604372978]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1027150834]
+shape = SubResource("RectangleShape2D_7ffwt")
+debug_color = Color(0.9856668, 0, 0.33613756, 0.41960785)
+
+[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]

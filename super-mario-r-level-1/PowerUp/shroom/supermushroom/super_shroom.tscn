@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://b486l6q8deljw"]
+
+[ext_resource type="PackedScene" uid="uid://otr2gqu7ybww" path="res://PowerUp/shroom/shroom.tscn" id="1_okl7b"]
+[ext_resource type="Script" uid="uid://b5vqkhedlqo18" path="res://PowerUp/shroom/supermushroom/super_shroom.gd" id="2_ngkt2"]
+
+[node name="SuperShroom" unique_id=1145345906 instance=ExtResource("1_okl7b")]
+script = ExtResource("2_ngkt2")
+PowerType = 1

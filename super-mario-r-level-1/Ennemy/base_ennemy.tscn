@@ -5,12 +5,17 @@
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ky8qd"]
 animations = [{
+"frames": [],
+"loop": 1,
+"name": &"Stomped",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_n65it")
 }],
 "loop": 1,
-"name": &"Idle",
+"name": &"Walk",
 "speed": 5.0
 }]
 
@@ -28,7 +33,7 @@ script = ExtResource("1_03iqh")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1525110639]
 sprite_frames = SubResource("SpriteFrames_ky8qd")
-animation = &"Idle"
+animation = &"Walk"
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=615535076]
 rotation = 0.0009540579
