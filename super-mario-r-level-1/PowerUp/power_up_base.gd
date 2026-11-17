@@ -7,6 +7,7 @@ class_name PowerUpBase extends CharacterBody2D
 
 func hitPower(body:Player)-> void:
 	body.Powering(PowerType)
+	queue_free()
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body is Player:

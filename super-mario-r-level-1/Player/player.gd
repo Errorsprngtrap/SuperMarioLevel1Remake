@@ -119,5 +119,8 @@ func _on_stompzone_area_entered(area: Area2D) -> void:
 
 func Powering(newPowerState:PowerState)->void:
 	currentPowerState = newPowerState
+	print(currentPowerState)
+	if currentPowerState == PowerState.Mini:
+		scale = scale/2
 	
 	

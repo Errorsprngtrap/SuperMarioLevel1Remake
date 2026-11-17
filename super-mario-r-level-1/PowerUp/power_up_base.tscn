@@ -8,7 +8,6 @@
 
 [node name="PowerUpBase" type="CharacterBody2D" unique_id=1145345906 groups=["PowerUp"]]
 collision_layer = 8
-collision_mask = 3
 script = ExtResource("1_y61nt")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=436788922]
@@ -23,6 +22,8 @@ target_position = Vector2(14, 0)
 target_position = Vector2(-14, 0)
 
 [node name="HitBox" type="Area2D" parent="." unique_id=604372978]
+collision_layer = 9
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" unique_id=1027150834]
 shape = SubResource("RectangleShape2D_7ffwt")

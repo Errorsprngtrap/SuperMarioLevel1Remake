@@ -5,4 +5,4 @@
 
 [node name="Shroom" unique_id=1145345906 instance=ExtResource("1_uc3nb")]
 script = ExtResource("2_5sd6x")
-speed = 100.0
+speed = 0.5
