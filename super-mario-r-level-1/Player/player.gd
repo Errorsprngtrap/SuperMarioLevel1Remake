@@ -122,5 +122,8 @@ func Powering(newPowerState:PowerState)->void:
 	print(currentPowerState)
 	if currentPowerState == PowerState.Mini:
 		scale = scale/2
+		
+	#if currentPowerState == PowerState.Super:
+		
 	
 	
